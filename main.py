@@ -54,6 +54,7 @@ def main() -> None:
     print("Program ending.")
 
 
-if __name__ == "__main__":
+if __name__ == "__main__": # Make sure main() run only when the script is execute
+    
     main()
 
