@@ -16,7 +16,7 @@ def readValues(filename: str) -> str:
     return values
 
 
-def analyseNumbers(values: str) -> str:
+def analyseValues(values: str) -> str:
     count = 0
     total = 0
     greatest = 0
@@ -32,16 +32,15 @@ def analyseNumbers(values: str) -> str:
     average = 0.0
     if count > 0:
         average = total / count
-    results = "{}{}{}{}{}{}{:.2f}".format(count, SEPARATOR, total, SEPARATOR, greatest, SEPARATOR, average)
+    results = "Count;Sum;Greatest;Average\n"
+    results += "{}{}{}{}{}{}{:.2f}\n".format(count, SEPARATOR, total, SEPARATOR, greatest, SEPARATOR, average)
     return results
 
 
 def displayResults(filename: str, results: str) -> None:
     print("#### Number analysis - START ####")
     print(f'File "{filename}" results:')
-    print("Count;Sum;Greatest;Average")
     print(results)
-    print()
     print("#### Number analysis - END ####")
 
 
@@ -49,12 +48,11 @@ def main() -> None:
     print("Program starting.")
     filename = input("Insert filename: ")
     values = readValues(filename)
-    results = analyseNumbers(values)
+    results = analyseValues(values)
     displayResults(filename, results)
     print("Program ending.")
 
 
-if __name__ == "__main__": # Make sure main() run only when the script is execute
-    
+if __name__ == "__main__":
     main()
-
+    
